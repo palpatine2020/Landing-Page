@@ -1,7 +1,7 @@
 ﻿<header class="intro-header " [ngClass]="!user ? 'bg view' : ''">
 
 <!-- nav for users-->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+<nav class="navbar navbar-expand navbar-dark bg-dark" >  <!--*ngIf="user"-->
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
         <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
@@ -10,7 +10,7 @@
 </nav>
 
     <!-- nav for Login&Register page-->
-    <div class="d-flex align-items-center nav-color" *ngIf="!user">
+    <div class="d-flex align-items-center nav-color"> <!--*ngIf="!user"-->
         <!--Logo-->
         <div class="col-3 py-2"><img class="logo" src="assets/img/transparent-logo.png"></div>
         <!--Title text-->
