@@ -63,20 +63,32 @@ div.example {
 .nopadding {
     padding: 0 !important;
     margin: 0 !important;
- }
+}
+
+div.example {
+    font-family: "Times New Roman", Times, serif;
+}
 
  @media screen and (min-width: 851px) {
     div.example {
       font-size: 30px;
+      padding-bottom: 10px;
       margin: 0;
-      padding: 0;
     }
   }
   
   @media screen and (max-width: 850px) {
     div.example {
       font-size: 15px;
-      margin: 0;
       padding: 0;
+      margin: 0;
     }
+  }
+
+.padding-bottom{
+    padding-bottom: 10px;
+}
+
+.padding-top{
+    padding-top: 10px;
 }
