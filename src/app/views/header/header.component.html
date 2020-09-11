@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="expanded-toolbar">
+  <span>
+    <button mat-button routerLink="/">
+      <mat-icon>home</mat-icon>
+      {{title}}</button>
+  </span>
+
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/login" > <!--*ngIf="!isAuthenticated"-->
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+    <button mat-button>
+      <mat-icon>biotech</mat-icon>
+      Biotech
+    </button>
+    <button mat-button>
+      <mat-icon>fingerprint</mat-icon>
+      Finger Print
+    </button>
+    <button mat-button>
+      <mat-icon>settings</mat-icon>
+      Settings
+    </button>
+    <button mat-button>
+      <mat-icon>support</mat-icon>
+      Support
+    </button>
+    <button mat-button>
+      <mat-icon>notifications</mat-icon>
+      Notifications
+    </button>
+  </div>
+  
+</mat-toolbar>

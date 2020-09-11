@@ -1,35 +1,40 @@
-﻿<header class="intro-header " [ngClass]="!user ? 'bg view' : ''">
+﻿<app-header [ngClass]="{ 'fixed-top': !user }"></app-header>
 
-<!-- nav for users-->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
-</nav>
+<header class="intro-header" >
+<div [ngClass]="!user ? 'bg py-5 my-5' : ''">
+    <!-- nav for users-->
+    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+            <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        </div>
+    </nav>
 
-    <!-- nav for Login&Register page-->
+    <!-- nav for Login&Register page
     <div class="d-flex align-items-center nav-color" *ngIf="!user">
-        <!--Logo-->
+        --Logo--
         <div class="col-3 py-2"><img class="logo" src="assets/img/transparent-logo.png"></div>
-        <!--Title text-->
+        --Title text--
         <div class="col-6">
             <div class="example text-center">Next Generation Laboratory</div>
             <div class="example text-center">(LIMS)</div>
         </div>
     </div>
+    -->
 
-
-<!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }">
-    <alert></alert>
-    <router-outlet></router-outlet>
+    <!-- main app container -->
+    <div class="app-container" [ngClass]="{ 'bg-light': user }">
+        <alert></alert>
+        <router-outlet></router-outlet>
+    </div>
 </div>
-</header>
+
+
+
 
 <!-- credits -->
-<div class="text-center mt-4">
+<div class="text-center my-4 pb-5">
     
     <p>
         Custom made by:
@@ -43,3 +48,5 @@
         <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
     </p>
 </div>
+</header>
+<app-footer class="fixed-bottom"></app-footer>
