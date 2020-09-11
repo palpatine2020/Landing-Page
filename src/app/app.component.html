@@ -1,6 +1,6 @@
 ﻿<app-header></app-header>
 
-<header class="intro-header" [ngClass]="!user ? 'bg view' : ''">
+<header class="intro-header" [ngClass]="!user ? 'bg' : ''">
 
     <!-- nav for users-->
     <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
@@ -34,7 +34,7 @@
 
 
 <!-- credits -->
-<div class="text-center mt-4">
+<div class="text-center my-4 pb-5">
     
     <p>
         Custom made by:
@@ -49,4 +49,4 @@
     </p>
 </div>
 
-<app-footer></app-footer>
+<app-footer class="fixed-bottom"></app-footer>
