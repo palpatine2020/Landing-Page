@@ -1,7 +1,7 @@
-﻿<app-header></app-header>
+﻿<app-header [ngClass]="{ 'fixed-top': !user }"></app-header>
 
-<header class="intro-header" [ngClass]="!user ? 'bg' : ''">
-
+<header class="intro-header" >
+<div [ngClass]="!user ? 'bg py-5 my-5' : ''">
     <!-- nav for users-->
     <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
         <div class="navbar-nav">
@@ -28,8 +28,8 @@
         <alert></alert>
         <router-outlet></router-outlet>
     </div>
+</div>
 
-</header>
 
 
 
@@ -48,5 +48,5 @@
         <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
     </p>
 </div>
-
+</header>
 <app-footer class="fixed-bottom"></app-footer>
