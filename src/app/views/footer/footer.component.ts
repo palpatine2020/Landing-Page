@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.less']
 })
 export class FooterComponent implements OnInit {
-
+  title = 'Next Generation LIMS, created by the Avengers Team';
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

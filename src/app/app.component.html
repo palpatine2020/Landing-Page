@@ -1,35 +1,37 @@
-﻿<mat-icon >home</mat-icon>
-<app-header></app-header>
+﻿<app-header></app-header>
 
-<header class="intro-header " [ngClass]="!user ? 'bg view' : ''">
+<header class="intro-header" [ngClass]="!user ? 'bg view' : ''">
 
-<!-- nav for users-->
-<nav class="navbar navbar-expand navbar-dark bg-dark" >  <!--*ngIf="user"-->
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
-</nav>
+    <!-- nav for users-->
+    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+            <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        </div>
+    </nav>
 
-    <!-- nav for Login&Register page-->
-    <div class="d-flex align-items-center nav-color"> <!--*ngIf="!user"-->
-        <!--Logo-->
+    <!-- nav for Login&Register page
+    <div class="d-flex align-items-center nav-color" *ngIf="!user">
+        --Logo--
         <div class="col-3 py-2"><img class="logo" src="assets/img/transparent-logo.png"></div>
-        <!--Title text-->
+        --Title text--
         <div class="col-6">
             <div class="example text-center">Next Generation Laboratory</div>
             <div class="example text-center">(LIMS)</div>
         </div>
     </div>
+    -->
 
+    <!-- main app container -->
+    <div class="app-container" [ngClass]="{ 'bg-light': user }">
+        <alert></alert>
+        <router-outlet></router-outlet>
+    </div>
 
-<!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }">
-    <alert></alert>
-    <router-outlet></router-outlet>
-</div>
 </header>
+
+
 
 <!-- credits -->
 <div class="text-center mt-4">
@@ -46,3 +48,5 @@
         <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
     </p>
 </div>
+
+<app-footer></app-footer>

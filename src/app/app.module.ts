@@ -4,10 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //Tim Add for Angular material
-import { MatButtonModule } from '@angular/material/button'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatIconModule } from '@angular/material/icon'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -30,7 +31,8 @@ import { HeaderComponent } from './views/header/header.component';
         BrowserAnimationsModule,
         MatButtonModule,
         MatIconModule,
-        MatToolbarModule
+        MatToolbarModule,
+        MatMenuModule,
 
     ],
     declarations: [
