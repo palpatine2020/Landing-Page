@@ -1,0 +1,39 @@
+
+<nav>
+    <ul class="menu">
+      <li class="logo"><a href="#">Creative Mind Agency</a></li>
+      <li class="item"><a href="#">Home</a></li>
+      <li class="item"><a href="#">About</a></li>
+      <li class="item has-submenu"> 
+        <a tabindex="0" class="ico">Services<mat-icon>expand_more</mat-icon></a>
+        <ul class="submenu">
+          <li class="subitem"><a href="#">Design</a></li>
+          <li class="subitem"><a href="#">Development</a></li>
+          <li class="subitem"><a href="#">SEO</a></li>
+          <li class="subitem"><a href="#">Copywriting</a></li>
+        </ul>
+      </li>
+      <li class="item has-submenu">
+        <a (click)="callitem()" tabindex="0" class="ico">Plans<mat-icon>expand_more</mat-icon></a>
+        <ul class="submenu">
+          <li class="subitem"><a href="#">Freelancer</a></li>
+          <li class="subitem"><a href="#">Startup</a></li>
+          <li class="subitem"><a href="#">Enterprise</a></li>
+        </ul>
+      </li>
+      <li class="item"><a href="#">Blog</a></li>
+      <li class="item"><a href="#">Contact</a></li>
+      <li class="item button"><a href="#">Log In</a></li>
+      <li class="item button secondary"><a href="#">Sign Up</a></li>
+      <li class="toggle">
+        <a (click)='calltoggle()'>
+          <button mat-button>
+            <mat-icon>menu</mat-icon>
+          </button>
+        </a>
+      </li>
+    </ul>
+</nav>
+
+
+

@@ -31,7 +31,12 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.less"
             ],
-            "scripts": []
+            "scripts": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "src/app/views/nav/functionTest.js",
+            "src/assets/js/externaljsfile.js",
+            "src/assets/js/custom.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,52 +1,38 @@
-﻿<app-header [ngClass]="{ 'fixed-top': !user }"></app-header>
+﻿<body>
+   
+    <div [ngClass]="!user ? 'bg' : ''">
+        
+        <!-- nav for non-users-->
+        <app-header ></app-header> <!--[ngClass]="{ 'fixed-top': user }"-->
+        <!-- nav for users-->
+        <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+                <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+                <a class="nav-item nav-link" routerLink="/flexing" routerLinkActive="active">Flexing</a>
+                <a class="nav-item nav-link" (click)="logout()">Logout</a>
+            </div>
+        </nav>
 
-<header class="intro-header" >
-<div [ngClass]="!user ? 'bg py-5 my-5' : ''">
-    <!-- nav for users-->
-    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-            <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-            <a class="nav-item nav-link" (click)="logout()">Logout</a>
-        </div>
-    </nav>
-
-    <!-- nav for Login&Register page
-    <div class="d-flex align-items-center nav-color" *ngIf="!user">
-        --Logo--
-        <div class="col-3 py-2"><img class="logo" src="assets/img/transparent-logo.png"></div>
-        --Title text--
-        <div class="col-6">
-            <div class="example text-center">Next Generation Laboratory</div>
-            <div class="example text-center">(LIMS)</div>
-        </div>
-    </div>
-    -->
-
-    <!-- main app container -->
-    <div class="app-container" [ngClass]="{ 'bg-light': user }">
-        <alert></alert>
-        <router-outlet></router-outlet>
-    </div>
-</div>
-
-
-
-
-<!-- credits -->
-<div class="text-center my-4 pb-5">
     
-    <p>
-        Custom made by:
-    </p>
+        <!-- main app container -->
+        <div class="app-container" [ngClass]="{ 'bg-light': user }">
+            <alert></alert>
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- credits -->
+    <div class="text-center my-4 pb-5">
+        <p>Custom made by:</p>
         <a href=""><img src="https://fontmeme.com/permalink/200831/ec5cea1cb0b12d2b277ac1fa25695c4b.png" alt="signature-fonts" ></a>
-    
-    <p>
-        <a href="https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial" target="_top">Angular 10 - User Registration and Login Example & Tutorial</a>
-    </p>
-    <p>
-        <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
-    </p>
-</div>
-</header>
-<app-footer class="fixed-bottom"></app-footer>
+        <p><a href="https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial" target="_top">Angular 10 - User Registration and Login Example & Tutorial</a></p>
+        <p><a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a></p>
+    </div>
+
+    <app-footer></app-footer>
+</body>

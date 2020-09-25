@@ -6,10 +6,12 @@ import { AuthGuard } from './_helpers';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
+const flexingModule = () => import('./flexing/flex.module').then(x => x.FlexModule);
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+    { path: 'flexing', loadChildren: flexingModule, canActivate:[AuthGuard]},
     { path: 'account', loadChildren: accountModule },
 
     // otherwise redirect to home
