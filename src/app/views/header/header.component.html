@@ -1,35 +1,68 @@
-<mat-toolbar color="primary" class="expanded-toolbar">
-  <span>
-    <button mat-button routerLink="/">
-      <mat-icon>home</mat-icon>
-      {{title}}</button>
-  </span>
+<mat-toolbar class="menu" color="primary">
+  <div>
+    <a class="logo" routerLink="/">
+      {{title}}
+    </a>
+  </div>
 
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-    <button mat-button routerLink="/login" > <!--*ngIf="!isAuthenticated"-->
-      <mat-icon>power_settings_new</mat-icon>
-      Login
+  <div>
+    <button mat-button *ngFor="let item of menuItems" 
+      [fxShow]="item.showOnDesktop" 
+      [fxShow.xs]="item.showOnMobile"
+      [fxShow.sm]="item.showOnTablet">
+      <mat-icon>{{item.icon}}</mat-icon>
+      {{item.label}}
     </button>
-    <button mat-button>
-      <mat-icon>biotech</mat-icon>
-      Biotech
+    
+    <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+      <mat-icon>menu</mat-icon>
     </button>
-    <button mat-button>
-      <mat-icon>fingerprint</mat-icon>
-      Finger Print
-    </button>
-    <button mat-button>
-      <mat-icon>settings</mat-icon>
-      Settings
-    </button>
-    <button mat-button>
-      <mat-icon>support</mat-icon>
-      Support
-    </button>
-    <button mat-button>
-      <mat-icon>notifications</mat-icon>
-      Notifications
-    </button>
+  
+
+    <mat-menu #dropMenu="matMenu">
+      <ng-container *ngFor="let item of menuItems">
+        <div [fxShow]="!item.showOnDesktop" 
+            [fxShow.sm]="!item.showOnTablet" 
+            [fxShow.xs]="!item.showOnMobile">
+          <button mat-menu-item>
+            <mat-icon>{{item.icon}}</mat-icon>
+            {{item.label}}
+          </button>
+        </div>
+      </ng-container>
+    </mat-menu>
   </div>
   
 </mat-toolbar>
+
+
+
+
+
+<!--
+  <button class="item" mat-button routerLink="/login" > *ngIf="!isAuthenticated"
+    <mat-icon>power_settings_new</mat-icon>
+    Login
+  </button>
+  <button class="item" mat-button>
+    <mat-icon>biotech</mat-icon>
+    Biotech
+  </button>
+  <button class="item" mat-button>
+    <mat-icon>settings</mat-icon>
+    Settings
+  </button>
+  <button class="item" mat-button>
+    <mat-icon>notifications</mat-icon>
+    Notifications
+  </button>
+  
+  <button class="toggle" mat-button [matMenuTriggerFor]="menu" >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  -->

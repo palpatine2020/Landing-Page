@@ -1,4 +1,59 @@
-.expanded-toolbar {
+
+.menu {
+    display: flex;
+    list-style: none;
     justify-content: space-between;
-    align-items: center;
+ }
+
+  
+.item {
+    text-decoration: none;
+    color: white;
+    display: none;
+    order: 2;
+    text-align: center;
 }
+
+.logo {
+    text-decoration: none;
+    display: block;
+    color: white;
+    flex: 1;
+
+}
+
+.toggle {
+    color: white;
+}
+
+.active .item {
+    display: block;
+}
+  
+
+/* Desktop menu */
+@media all and (min-width: 650px) { 
+    .menu {     
+        flex-wrap: nowrap;
+    }
+    .logo {
+        order: 0;
+    }
+    .item {
+        order: 1;
+        position: relative;
+        display: block; 
+        width: auto;
+    }
+    .button {
+        order: 2;
+    }
+    .toggle {
+        display: none;
+    }
+    
+} 
+
+  
+
+  
