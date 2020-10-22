@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '@app/_services';
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
-
+    
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.form = this.formBuilder.group({
             username: ['', Validators.required],
-            password: ['', Validators.required]
+            password: ['', Validators.required],
+            //firstNameTest: [''],
+            //lastNameTest: [''],
+            //role: [''],
+            //fullName: new FormControl('')
         });
 
         // get return url from route parameters or default to '/'
@@ -43,9 +47,14 @@ export class LoginComponent implements OnInit {
         if (this.form.invalid) {
             return;
         }
+        // var str1 = this.f.firstNameTest.value;
+        // var str2 = this.f.lastNameTest.value;
+        // var res = str1.concat(" ",str2);
+        // this.form.patchValue({fullName:res});
 
+        //this.f.username.value, this.f.password.value, 
         this.loading = true;
-        this.accountService.login(this.f.username.value, this.f.password.value)
+        this.accountService.login(this.form.value)
             .pipe(first())
             .subscribe(
                 data => {
@@ -56,4 +65,10 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 });
     }
+
+    sso(){
+
+    }
+
+
 }

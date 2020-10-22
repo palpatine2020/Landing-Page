@@ -12,4 +12,4 @@ function toggleMenu(){
     }
 }
 
-toggle.addEventListener('click',toggleMenu,false);
+//toggle.addEventListener('click',toggleMenu,false);

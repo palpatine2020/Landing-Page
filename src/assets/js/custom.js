@@ -33,13 +33,13 @@ function toggleItem(menu) {
     }
   }
   /* Event Listeners */
-  toggle.addEventListener("click", toggleMenu, false);
+  //toggle.addEventListener("click", toggleMenu, false);
 
   
-  for (let item of items) {
-    if (item.querySelector(".submenu")) {
-      item.addEventListener("click", toggleItem, false);
-    }
-    item.addEventListener("keypress", toggleItem, false);
-  }
-  document.addEventListener("click", closeSubmenu, false);
+  // for (let item of items) {
+  //   if (item.querySelector(".submenu")) {
+  //     item.addEventListener("click", toggleItem, false);
+  //   }
+  //   item.addEventListener("keypress", toggleItem, false);
+  // }
+  // document.addEventListener("click", closeSubmenu, false);

@@ -3,5 +3,25 @@
         <h1>Hi {{user.firstName}}!</h1>
         <p>You're logged in with Angular 10!!</p>
         <p><a routerLink="/users">Manage Users</a></p>
+        <p><br>User Info</p>
+        <ul>
+            <li>id: {{user.id}}</li>
+            <li>username: {{user.username}}</li>
+            <li>firstname: {{user.firstName}}</li>
+            <li>lastname: {{user.lastName}}</li>
+            <li style="word-wrap: break-word"><b>TOKEN: </b>{{user.token}}</li>
+            <!-- <li>Fullname: {{user.name}}</li>
+            <li>SID: {{user.sid}}</li>
+            <li>Role: {{user.role}}</li> -->
+            
+            <!--<div id="formatted">Info: {{test}}</div>-->
+        </ul>  
     </div>
+    {{user.token | json}}
+    <br>
+    <br>
+    {{user.info }}
+    <br>
+    <br>
+    {{test}}
 </div>

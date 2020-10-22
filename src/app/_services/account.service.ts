@@ -12,24 +12,28 @@ export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
+
     constructor(
         private router: Router,
         private http: HttpClient
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
+        //this.userValue.info = JSON.stringify(this.userSubject.value.token);
     }
 
     public get userValue(): User {
         return this.userSubject.value;
     }
 
-    login(username, password) {
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
+    login(data:User) {
+        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, data)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
+                //data.info = JSON.stringify(user.info)
+                console.log(user);
                 return user;
             }));
     }
